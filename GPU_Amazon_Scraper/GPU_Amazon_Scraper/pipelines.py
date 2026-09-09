@@ -12,6 +12,7 @@ class AmazonScraperSQlitePipeline:
     TABLE_MAP = {
         "GPU": ("gpu_data.db", "gpu_data"),
         "CPU": ("cpu_data.db", "cpu_data"),
+        "PSU": ("psu_data.db", "psu_data"),
     }
 
     def open_spider(self, spider):
@@ -58,6 +59,14 @@ class GpuAmazonScraperPipeline:
     def process_item(self, item,spider):
         if spider.name == "GPU":
             # Process GPU items
+            # You can add any additional processing logic here if needed
+            pass
+        return item
+
+class PsuAmazonScraperPipeline:
+    def process_item(self, item,spider):
+        if spider.name == "PSU":
+            # Process PSU items
             # You can add any additional processing logic here if needed
             pass
         return item

@@ -14,7 +14,7 @@ class MotherboardSpider(scrapy.Spider):
     }
     API_KEY = 'eb717a0c78b347e7b51806a716a279b0df6715b6ef5'
 
-    def start_requests(self):
+    async def start(self):
         target_url = 'https://www.amazon.com/s?k=gpu'
         # Route request through ScraperAPI endpoint
         proxy_url = f'http://api.scraperapi.com/?{urlencode({"api_key": self.API_KEY, "url": target_url})}'
