@@ -1,3 +1,5 @@
+import os
+
 import scrapy
 from urllib.parse import urlencode
 from urllib import response
@@ -13,7 +15,7 @@ class RamSpider(scrapy.Spider):
         'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         'AUTOTHROTTLE_ENABLED': True,
     }
-    API_KEY = 'eb717a0c78b347e7b51806a716a279b0df6715b6ef5'
+    API_KEY = os.environ.get("SCRAPEDO_KEY")
 
     async def start(self):
         target_url = 'https://www.amazon.com/s?k=gpu'
